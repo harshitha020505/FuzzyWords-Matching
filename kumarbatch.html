@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2{
+            text-align: center;
+        }
+        .new{
+            display: flex;
+            justify-content: space-between;
+            /* align-items: center; */
+            flex-direction: row;
+            /* align-items: left; */
+        }
+
+        th {
+            background-color: navy;
+            color: white;
+        }
+
+        table{
+            border-collapse: collapse;
+            width: 70%;
+            align-items:left;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        tr:hover {
+            background-color: #ddd;
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        td, th {
+            width: 150px;
+        }
+
+        table{
+            border-radius: 3%;
+        }
+
+        .bye{
+            background-color: navy;
+        }
+
+        .bye1{
+            background-color: rgb(247, 244, 244);
+        }
+
+        .c8{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            margin-top:10px;
+        }
+
+        input{
+            height: 30px;
+            width:150px;
+            color:white;
+            background-color: #1338BE;
+            text-align:center;
+        }
+
+        thead{
+            color:white;
+        }
+
+        thead:hover{
+            background-color:skyblue;
+        }
+
+        .c1{
+            text-align: right;
+            margin-right: 0px;
+        }
+
+        .c2{
+            height:30px;
+            width:100px;
+            /* color:black; */
+            background-color: navy;
+            border-radius: 5%;
+        }
+
+        .c2:hover{
+            background-color: honeydew;
+        }
+
+        .c3{
+            display:flex;
+            justify-content: flex-end;
+            gap:20px;
+            margin-right: 90px;
+            margin-bottom:50px;
+            margin-top:20px;
+        }
+
+        .search-container {
+            position: relative;
+            width: 150px;
+            height:30px;
+            background-color: #fff;
+            border-radius: 5px;
+            display: flex;
+            padding: 10px;
+        }
+
+        #searchBar, #sortBar {
+            width: 100%;
+            font-size: 16px;
+            /* border: 1px solid black; */
+            border-radius: 4px;
+            /* outline: none; */
+            /* color:black ; */
+            transition: border-color 0.3s;
+            background-color: white;
+        }
+
+        #searchBar:focus, #sortBar:focus {
+            border-color: #3498db;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: white;
+            border-radius: 4px;
+            max-height: 200px;
+            overflow-y: auto;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #2C3E50;
+      padding: 20px;
+      width: 100%;
+      color: white;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: lightblue;
+    }
+
+    .search-container {
+      position: relative;
+      width: 400px;
+      margin-top: 60px; /* Adjust to position below header */
+      display: flex;
+      align-items: center;
+      border: 1px solid #ccc;
+      border-radius: 24px;
+      background-color: #fff;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #searchBar {
+      border: none;
+      outline: none;
+      font-size: 16px;
+      padding: 10px;
+      width: 100%;
+      /* border:2px solid black; */
+      border-radius: 24px 0 0 24px;
+    }
+    #searchBar1 {
+      border: none;
+      /* outline: ; */
+      border:2px solid black;
+      
+      font-size: 16px;
+      padding: 10px;
+      width: 100%;
+      /* border:2px solid black; */
+      border-radius: 5%;
+    }
+
+    #searchBar:focus {
+      border-color: #3498db;
+    }
+    #searchBar1:focus {
+      border-color: #3498db;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      border-radius: 4px;
+      max-height: 200px;
+      overflow-y: auto;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      transition: background-color 0.3s;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #3498db;
+      color: white;
+    }
+
+    #micButton {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            margin-left: 10px;
+        }
+    #micIcon {
+            width: 20px;
+            height: 20px;
+            margin-bottom: 50px;
+            margin-right: 60px;
+        }
+    h3{
+        margin-right: 60px;
+    }
+    .search-container {
+      position: relative;
+      width: 400px;
+      margin-top: 60px; /* Adjust to position below header */
+      display: flex;
+      align-items: center;
+      border: 1px solid #ccc;
+      border-radius: 24px;
+      background-color: #fff;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #searchBar {
+      border: none;
+      outline: none;
+      font-size: 16px;
+      padding: 10px;
+      width: 100%;
+      border-radius: 24px 0 0 24px;
+    }
+
+    #searchBar:focus {
+      border-color: #3498db;
+    }
+    .c11{
+        height:50px;
+        width:300px;
+        color:black;
+        background-color:blue;
+        margin-right: 50px;
+        margin-left:25px;
+    }
+    .c12{
+        display:flex;
+        flex-direction: column;
+        margin-top:50px;
+        gap:10px;
+    }
+    .c13{
+        display: none;
+        background-color: #ccc;
+        color:black;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        height:150px;
+        width:300px;
+        text-align: center;
+    }
+    .c14{
+        color:black;
+        width:80px;
+        background-color: white;
+    }
+    .c15{
+        background-color: blueviolet;
+        color:black;
+        width:150px;
+        height:40px;
+        border: 2px solid black;
+        /* margin-left: 10px; */
+    }
+    .c{
+        height:50px;
+        background-color:orange;
+    }
+
+
+    </style>
+</head>
+<body>
+
+    <div class="c3">
+        <input type="text" placeholder="Search..." id="searchBar1" style="background-color: white;">
+
+        <div id="dropdown" class="dropdown-content">
+          <a href="sureshbatch.html">Sursh</a>
+          <a href="surshbatch.html">Suresh</a>
+          <a href="surshh.html">Surshh</a>
+          <a href="sureshh.html">Archana</a>
+          <a href="sursh.html">Archan</a>
+          <a href="suresh.html">Archanaa</a>
+          <a href="surshh.html">Anvi</a>
+          <a href="sureshh.html">Kumaar</a>
+          <a href="sursh.html">Kumar</a>
+          <a href="suresh.html">Kummar</a>
+          <a href="surshh.html">Krishna</a>
+          <a href="sureshh.html">Arch</a>
+        </div>
+        <button id="micButton">
+          <img id="micIcon" src="https://up.yimg.com/ib/th?id=OIP.TNTxx7yRBBsMcMfo8C5DEwHaHa&pid=Api&rs=1&c=1&qlt=95&w=121&h=121" alt="Mic">
+        </button>
+        
+        
+        <div class="search-container">
+
+            <input type="text" placeholder="Filters" id="searchBar" style="color:white;">
+            <div id="filterDropdown" class="dropdown-content">
+                <a href="bystatus.html">By Case Status</a>
+                <a href="suresh.html">By Place</a>
+                <a href="surshh.html">By Age</a>
+                <a href="lastupdated.html">Last Updated</a>
+            </div>
+        </div>
+
+        <!-- Sort search container -->
+        <div class="search-container">
+            <input type="text" placeholder="Sort" id="sortBar">
+            <div id="sortDropdown" class="dropdown-content">
+                <a href="bystatus.html">By Case Status</a>
+                <a href="relevancep.html">By relevance percentage</a>
+                <a href="byname.html">Alphabetical order</a>
+                <a href="lastupdated.html">Last Updated</a>
+            </div>
+        </div>
+    </div>
+    <h3 style="text-align: right;">Record Count:12</h3>
+
+    <div class="new">
+        
+        <div class="c12">
+            <button class="c"><b>Filters</b></button>
+            <br/>
+            <br/>
+            <button id="i11" class="c11"><b>By age</b></button>
+            <div class="c13" id="i13">
+                
+                <br/>
+                
+                <label>select the age</label>
+                <br/>
+                <br/>
+                <input type="number" placeholder="exact age"/>
+                <br/>
+                <br/>
+                <select class="c14" type="number" placeholder="age">
+                    <option value="+-2"><a>+-2</a></option>
+                    <option value="+-5"><a>+-5</a></option>
+                </select>
+                <!-- <br/> -->
+                <!-- <br/> -->
+                <!-- <button type="submit" class="c15" id="i16">submit</button> -->
+            </div>
+            <!-- <div class="c13" id="i15" style="height:200px;">
+                <p>The age that you entered is not there in the records</p>
+                 <br/> -->
+                <!-- <br/> -->
+                <!-- <label>enter by which we have to increas the range of age:</label>
+                <br/>
+                
+                <br/>
+                <br/>
+                <form action="agefilter.html">
+                    <button type="submit" class="c15" id="i17">submit</button>
+                </form>
+               
+
+            </div>  -->
+            
+            <button class="c11" id="i21"><b>by place</b></button>
+            <div class="c13" id="i20" style="height:200px;">
+                <br/>
+                <br/>
+                <label>enter the area you want to filter out:</label>
+                <br/>
+                <br/>
+                <input class="c14" type="text" placeholder="area"/>
+                <br/>
+                <br/>
+                <form action="placefilter.html">
+                    <button type="submit" class="c15" id="i31"><b>submit</b></button>
+                </form>
+               
+            </div>
+            <!-- <br/> -->
+            <!-- <br/> -->
+            <button class="c11" id="i23" ><b>date</b></button>
+            <div class="c13" id="i22" style="height:200px;">
+                <br/>
+                <br/>
+                <label>enter the from and to dates:</label>
+                <br/>
+                <br/>
+                <input class="c14" type="date" placeholder="from"/>&nbsp;&nbsp;
+                <input class="c14" type="date" placeholder="to"/>
+                <br/>
+                <br/>
+                <form action="datefilter.html">
+                    <button type="submit" class="c15" id="i23"><b>submit</b></button>
+                </form>
+                
+            </div>
+        </div>
+        <table border="4" height="100" width="750">
+            <thead>
+                <tr class="bye">
+                    <td>s.no</td>
+                    <td>Full Name</td>
+                    <td>Gender</td>
+                    <td>Age</td>
+                    <td>Location</td>
+                    <td>Recent Crime</td>
+                    <td>Case Status</td>
+                    <td>Relevance percentage</td>
+                    <td>Role type</td>
+                    <td>For Further Details</td>
+                </tr>
+            </thead>
+            
+                <tbody>
+                    <tr >
+                        <td>1</td>
+                        <td>suresh</td>
+                        <td>Male</td>
+                        <td>25</td>
+                       
+                        <td>H.no:5-22,Kokapet,Hyderabad</td>
+                        <td>6-5-1997</td>
+                        <td>Pending</td>
+
+                        <td>85.367%</td>
+                        <td>victim</td>
+                        <td>
+                            <form action="sursh.html"><button>For Further Details</button></form></td>
+                        
+                    </tr>
+                    <tr >
+                        <td>2</td>
+                        <td>k.suresh</td>
+                        <td>Male</td>
+                        <td>26</td>
+                        
+                        <td>H.no:5-22,Kokapet,Hyderabad</td>
+                        <td>6-5-2009</td>
+                        <td>closed</td>
+                        <td>81%</td>
+                        <td>suspect</td>
+                        <td>
+                            <form action="sursh.html"><button>For Further Details</button></form></td>
+                    </tr>
+                    <tr >
+                        <td>3</td>
+                        <td>kalvakuntla suresh</td>
+                        <td>Male</td>
+                        <td>27</td>
+                        
+                        <td>H.no:5-22,Kokapet,Hyderabad</td>
+                        <td>5-9-2019</td>
+                        <td>closed</td>
+                        <td>50%</td>
+                        <td>wittness</td>
+                        <td>
+                            <form action="sursh.html"><button>For Further Details</button></form></td>
+                    </tr>
+                    <tr >
+                        <td>4</td>
+                        <td>suresh kalvakuntla</td>
+                        <td>Male</td>
+                        <td>25</td>
+                        
+                        <td>H.no:5-22,Kokapet,Hyderabad</td>
+                        <td>6-5-2009</td>
+                        <td>Pending</td>
+                        <td>49%</td>
+                        <td>victim</td>
+                        
+                        <td>
+                            <form action="sursh.html"><button>For Further Details</button></form></td>
+                        
+                    </tr>
+                    <tr >
+                        <td>5</td>
+                        <td>sursh</td>
+                        <td>Male</td>
+                        <td>25</td>
+                       
+                        <td>H.no:5-22,Kokapet,Hyderabad</td>
+                        <td>6-5-2009</td>
+                        <td>closed</td>
+                        <td>45%</td>
+                        <td>suspect</td>
+                        <td>
+                            <form action="sursh.html"><button>For Further Details</button></form></td>
+                    </tr>
+                    <tr >
+                        <td>6</td>
+                        <td>R.sursh</td>
+                        <td>Male</td>
+                        <td>25</td>
+                        
+                        <td>H.no:5-22,Kokapet,Hyderabad</td>
+                        <td>6-5-2009</td>
+                        <td>Pending</td>
+                        <td>42%</td>
+                        <td>wittness</td>
+                        <td>
+                            <form action="sursh.html"><button>For Further Details</button></form></td>
+                    </tr>
+                    <tr >
+                        <td>7</td>
+                        <td>arpula sursh</td>
+                        <td>Male</td>
+                        <td>25</td>
+                        
+                        <td>H.no:5-22,Kokapet,Hyderabad</td>
+                        <td>6-5-2009</td>
+                        <td>Pending</td>
+                        <td>39%</td>
+                        <td>victim</td>
+                        <td>
+                            <form action="sursh.html"><button>For Further Details</button></form></td>
+                    </tr>
+                    <tr >
+                        <td>8</td>
+                        <td>sursh arpula</td>
+                        <td>Male</td>
+                        <td>25</td>
+                        
+                        <td>H.no:5-22,Kokapet,Hyderabad</td>
+                        <td>6-5-2009</td>
+                        <td>closed</td>
+                        <td>35%</td>
+                        <td>suspect</td>
+                        <td>
+                            <form action="sursh.html"><button>For Further Details</button></form></td>
+                    </tr>
+                    <tr >
+                        <td>9</td>
+                        <td>suree</td>
+                        <td>Male</td>
+                        <td>25</td>
+                       
+                        <td>H.no:5-22,Kokapet,Hyderabad</td>
+                        <td>6-5-2009</td>
+                        <td>Pending</td>
+                        <td>29%</td>
+                        <td>witness</td>
+                        <td>
+                            <form action="sursh.html"><button>For Further Details</button></form></td>
+                    </tr>
+                    <tr >
+                        <td>10</td>
+                        <td>suri</td>
+                        <td>Male</td>
+                        <td>25</td>
+                       
+                        <td>H.no:5-22,Kokapet,Hyderabad</td>
+                        <td>6-5-2009</td>
+                        <td>closed</td>
+                        <td>26%</td>
+                        <td>victim</td>
+                        <td>
+                            <form action="sursh.html"><button>For Further Details</button></form></td>
+                    </tr>
+                    <tr >
+                        <td>11</td>
+                        <td>sur</td>
+                        <td>Male</td>
+                        <td>25</td>
+                        
+                        <td>H.no:5-22,Kokapet,Hyderabad</td>
+                        <td>6-5-2009</td>
+                        <td>Pending</td>
+                        <td>22%</td>
+                        <td>suspect</td>
+                        <td>
+                            <form action="sursh.html"><button>For Further Details</button></form></td>
+                    </tr>
+                    <tr >
+                        <td>12</td>
+                        
+
+
+                        <td>sur</td>
+                        <td>Male</td>
+                        <td>25</td>
+                       
+                        <td>H.no:5-22,Kokapet,Hyderabad</td>
+                        <td>6-5-2009</td>
+                        <td>closed</td>
+                        <td>20%</td>
+                        <td>suspect</td>
+                        <td>
+                            <form action="sursh.html"><button>For Further Details</button></form></td>
+                    </tr>
+                   
+                    
+                </tbody>
+           
+        </table>
+    </div>
+
+    <script>
+          
+    const searchBar = document.getElementById('searchBar');
+    const dropdown = document.getElementById('dropdown');
+    const micButton = document.getElementById('micButton');
+
+    searchBar.addEventListener('focus', () => {
+      // Show dropdown if input has 2 or more characters
+      if (searchBar.value.length >= 2) {
+        dropdown.style.display = 'block';
+      }
+    });
+
+    searchBar.addEventListener('blur', () => {
+      // Delay hiding to allow dropdown to be clicked
+      setTimeout(() => {
+        dropdown.style.display = 'none';
+      }, 200);
+    })
+
+    searchBar.addEventListener('input', () => {
+      const value = searchBar.value.toLowerCase();
+      const links = dropdown.querySelectorAll('a');
+      let hasMatch = false;
+
+      if (value.length >= 2) {
+        links.forEach(link => {
+          if (link.innerText.toLowerCase().includes(value)) {
+            link.style.display = 'block';
+            hasMatch = true;
+          } else {
+            link.style.display = 'none';
+          }
+        });
+        dropdown.style.display = hasMatch ? 'block' : 'none';
+      } else {
+        dropdown.style.display = 'none'; // Hide dropdown if less than 2 characters
+      }
+    })
+    
+
+    // Microphone functionality using Web Speech API
+    micButton.addEventListener('click', () => {
+      const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+      recognition.lang = 'en-US';
+
+      recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        searchBar.value = transcript;
+        searchBar.dispatchEvent(new Event('input')); // Trigger input event to update dropdown
+      };
+
+      recognition.start();
+    })
+  
+        function setupDropdown(inputId, dropdownId) {
+            const input = document.getElementById(inputId);
+            const dropdown = document.getElementById(dropdownId);
+            const options = dropdown.getElementsByTagName('a');
+
+            // Show dropdown when search bar is focused
+            input.addEventListener('focus', function() {
+                dropdown.style.display = "block";
+            });
+
+            // Filter dropdown based on input
+            input.addEventListener('input', function() {
+                let filter = input.value.toUpperCase();
+                for (let i = 0; i < options.length; i++) {
+                    let txtValue = options[i].textContent || options[i].innerText;
+                    if (txtValue.toUpperCase().startsWith(filter)) {
+                        options[i].style.display = "";
+                    } else {
+                        options[i].style.display = "none";
+                    }
+                }
+            });
+
+            // Hide dropdown when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!input.contains(event.target) && !dropdown.contains(event.target)) {
+                    dropdown.style.display = "none";
+                }
+            });
+        }
+
+        // Initialize dropdowns for both filter and sort bars
+        setupDropdown('searchBar', 'filterDropdown');
+        setupDropdown('sortBar', 'sortDropdown');
+        document.getElementById('i11').addEventListener('click',function(){
+            var content=document.getElementById('i13');
+            if (content.style.display=='none'){
+                content.style.display='inline';
+            }
+            else{
+                content.style.display='none';
+            }
+        });
+        // document.getElementById('i16').addEventListener('click',function(){
+        //     var content1=document.getElementById('i15');
+        //     if(content1.style.display='none'){
+        //         content1.style.display='block';
+        //     }
+        //     else{
+        //         content1.style.display='none';
+        //     }
+        // });
+        document.getElementById('i21').addEventListener('click',function(){
+            var content1=document.getElementById('i20');
+            if(content1.style.display='none'){
+                content1.style.display='block';
+            }
+            else{
+                content1.style.display='none';
+            }
+        });
+        document.getElementById('i23').addEventListener('click',function(){
+            var content1=document.getElementById('i22');
+            if(content1.style.display='none'){
+                content1.style.display='block';
+            }
+            else{
+                content1.style.display='none';
+            }
+        });
+
+    </script>
+</body>
+</html>

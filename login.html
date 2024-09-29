@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f0f3f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        label {
+            font-size: 16px;
+            color: #2c3e50;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input[type="text"], input[type="password"], input[type="phonenumber"], input[type="number"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            background-color: #ecf0f1;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus, input[type="password"]:focus, input[type="phonenumber"]:focus, input[type="number"]:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            color: white;
+            background-color: #2ecc71;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: #27ae60;
+        }
+
+        .login-footer {
+            font-size: 14px;
+            color: #7f8c8d;
+            margin-top: 20px;
+        }
+
+        .login-footer a {
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .login-footer a:hover {
+            color: blue;
+        }
+
+        select {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #bdc3c7;
+            border-radius: 5px;
+            background-color: #ecf0f1;
+            margin-top: 10px;
+        }
+
+        select:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        .otp-input {
+            display: none; /* Initially hidden */
+        }
+    </style>
+</head>
+<body>
+    <form id="loginForm" action="main.html">
+        <h2>Login to Your Account</h2>
+        
+        <div class="form-group">
+            <input type="text" id="username" placeholder="Enter your username" required />
+        </div>
+
+        <div class="form-group">
+            <input type="password" id="password" placeholder="Enter your password" required />
+        </div>
+
+        <div class="form-group">
+            <input type="phonenumber" id="phonenumber" placeholder="Enter your phone number" required />
+        </div>
+
+        <div class="form-group">
+            <a id="generateOtpBtn" class="submit-btn">Generate OTP</a>
+        </div>
+
+        <div class="form-group otp-input" id="otpGroup">
+            <input type="number" id="otp" placeholder="Enter your OTP" required />
+        </div>
+
+        <!-- Dropdown using select -->
+        <div class="form-group">
+            <label for="role">Choose:</label>
+            <select id="role">
+                <option value="Authorized entities">Authorized entities</option>
+                <option value="Research officers">Research officers</option>
+                <option value="Data entry officer">Data entry officer</option>
+            </select>
+        </div>
+        
+        <input type="submit" class="submit-btn" value="Login" />
+
+        <div class="login-footer">
+            <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+        </div>
+    </form>
+
+    <script>
+        document.getElementById('generateOtpBtn').addEventListener('click', function() {
+           
+            document.getElementById('otpGroup').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
