@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Bar with Dropdown</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Times New Roman', serif;
+      background-color: #f4f4f4;
+      color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #2C3E50;
+      padding: 20px;
+      width: 100%;
+      color: white;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      position: fixed;
+      top: 0;
+      left: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: lightblue;
+    }
+
+    .search-container {
+      position: relative;
+      width: 400px;
+      margin-top: 60px; /* Adjust to position below header */
+      display: flex;
+      align-items: center;
+      border: 1px solid #ccc;
+      border-radius: 24px;
+      background-color: #fff;
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #searchBar {
+      border: none;
+      outline: none;
+      font-size: 16px;
+      padding: 10px;
+      width: 100%;
+      border-radius: 24px 0 0 24px;
+    }
+
+    #searchBar:focus {
+      border-color: #3498db;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      background-color: white;
+      border-radius: 4px;
+      max-height: 200px;
+      overflow-y: auto;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      transition: background-color 0.3s;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #3498db;
+      color: white;
+    }
+
+    #micButton {
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+    }
+
+    #micIcon {
+      width: 20px;
+      height: 20px;
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <h1>Fuzzy Names Matching</h1>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="aboutus.html">About Us</a>
+      <a href="contactus.html">Contact Us</a>
+    </div>
+  </div>
+  
+  <div class="search-container">
+    
+      <input type="text" placeholder="Search..." id="searchBar">
+  
+    
+    <div id="dropdown" class="dropdown-content">
+      <a href="sureshbatch.html">Sursh</a>
+      <a href="surshbatch.html">Suresh</a>
+      <a href="surshh.html">Surshh</a>
+      <a href="sureshh.html">Archana</a>
+      <a href="sursh.html">Archan</a>
+      <a href="suresh.html">Archanaa</a>
+      <a href="surshh.html">Anvi</a>
+      <a href="sureshh.html">Kumaar</a>
+      <a href="sursh.html">Kumar</a>
+      <a href="suresh.html">Kummar</a>
+      <a href="surshh.html">Krishna</a>
+      <a href="sureshh.html">Arch</a>
+    </div>
+    <button id="micButton">
+      <img id="micIcon" src="https://up.yimg.com/ib/th?id=OIP.TNTxx7yRBBsMcMfo8C5DEwHaHa&pid=Api&rs=1&c=1&qlt=95&w=121&h=121" alt="Mic">
+    </button>
+  </div>
+
+  <script>
+    const searchBar = document.getElementById('searchBar');
+    const dropdown = document.getElementById('dropdown');
+    const micButton = document.getElementById('micButton');
+
+    searchBar.addEventListener('focus', () => {
+      // Show dropdown if input has 2 or more characters
+      if (searchBar.value.length >= 2) {
+        dropdown.style.display = 'block';
+      }
+    });
+
+    searchBar.addEventListener('blur', () => {
+      // Delay hiding to allow dropdown to be clicked
+      setTimeout(() => {
+        dropdown.style.display = 'none';
+      }, 200);
+    });
+
+    searchBar.addEventListener('input', () => {
+      const value = searchBar.value.toLowerCase();
+      const links = dropdown.querySelectorAll('a');
+      let hasMatch = false;
+
+      if (value.length >= 2) {
+        links.forEach(link => {
+          if (link.innerText.toLowerCase().includes(value)) {
+            link.style.display = 'block';
+            hasMatch = true;
+          } else {
+            link.style.display = 'none';
+          }
+        });
+        dropdown.style.display = hasMatch ? 'block' : 'none';
+      } else {
+        dropdown.style.display = 'none'; // Hide dropdown if less than 2 characters
+      }
+    });
+
+    // Microphone functionality using Web Speech API
+    micButton.addEventListener('click', () => {
+      const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+      recognition.lang = 'en-US';
+
+      recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        searchBar.value = transcript;
+        searchBar.dispatchEvent(new Event('input')); // Trigger input event to update dropdown
+      };
+
+      recognition.start();
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .c3 {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            margin-top: 60px; /* Adjusted for better spacing from top */
+        }
+        #searchBar1 {
+            padding: 10px;
+            width: 300px; 
+            border:2px solid black;
+            border: 1px solid #ccc;
+            border-radius: 5%;
+        }
+        #micButton {
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            margin-left: 10px;
+        }
+        #micIcon {
+            width: 20px;
+            height: 20px;
+            margin-bottom:60px;
+            
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            width: 300px; /* Matches search bar width */
+            border-radius: 5px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #3498db;
+            color: white;
+        }
+        .new {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid black;
+        }
+        th {
+            background-color: navy;
+            color: white;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        button {
+            padding: 5px 10px;
+            background-color: navy;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: lightblue;
+        }
+        h3{
+        margin-right: 60px;
+    }
+    </style>
+</head>
+<body>
+
+    <div class="c3">
+        <div>
+            <input type="text" id="searchBar1" placeholder="Search..." onkeyup="showDropdown()">
+            <div id="dropdown" class="dropdown-content">
+                <a href="sureshbatch.html">Sursh</a>
+                <a href="surshbatch.html">Suresh</a>
+              
+            </div>
+        </div>
+        <button id="micButton">
+            <img id="micIcon" src="https://up.yimg.com/ib/th?id=OIP.TNTxx7yRBBsMcMfo8C5DEwHaHa&pid=Api&rs=1&c=1&qlt=95&w=121&h=121" alt="Mic">
+        </button>
+    </div>
+    <h3 style="text-align: right;">Record Count:12</h3>
+
+   
+    <div class="new">
+        <table>
+            <thead>
+                <tr>
+                    <th>s.no</th>
+                    <th>Full Name</th>
+                    <th>Gender</th>
+                    <th>Age</th>
+                    <th>Location</th>
+                    <th>Recent Crime</th>
+                    <th>Case Status</th>
+                    <th>Relevance percentage</th>
+                    <th>Role type</th>
+                    <th>For Further Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr >
+                    <td>1</td>
+                    <td>suresh</td>
+                    <td>Male</td>
+                    <td>25</td>
+                   
+                    <td>H.no:5-22,Kokapet,Hyderabad</td>
+                    <td>6-5-1997</td>
+                    <td>Pending</td>
+                    <td>85.367%</td>
+                    <td>victim</td>
+                    <td>
+                        <form action="sursh.html"><button>For Further Details</button</form></td>
+                    
+                </tr>
+                <tr >
+                    <td>2</td>
+                    <td>k.suresh</td>
+                    <td>Male</td>
+                    <td>26</td>
+                    
+                    <td>H.no:5-22,Kokapet,Hyderabad</td>
+                    <td>6-5-2009</td>
+                    <td>closed</td>
+                    <td>81%</td>
+                    <td>victim</td>
+                    <td>
+                        <form action="sursh.html"><button>For Further Details</button</form></td>
+                </tr>
+                <tr >
+                    <td>3</td>
+                    <td>kalvakuntla suresh</td>
+                    <td>Male</td>
+                    <td>27</td>
+                    
+                    <td>H.no:5-22,Kokapet,Hyderabad</td>
+                    <td>5-9-2019</td>
+                    <td>closed</td>
+                    <td>50%</td>
+                    <td>victim</td>
+                    <td>
+                        <form action="sursh.html"><button>For Further Details</button</form></td>
+                </tr>
+                <tr >
+                    <td>4</td>
+                    <td>suresh kalvakuntla</td>
+                    <td>Male</td>
+                    <td>25</td>
+                    
+                    <td>H.no:5-22,Kokapet,Hyderabad</td>
+                    <td>6-5-2009</td>
+                    <td>Pending</td>
+                    <td>49%</td>
+                    <td>victim</td>
+                    
+                    <td>
+                        <form action="sursh.html"><button>For Further Details</button</form></td>
+                    
+                </tr>
+                <tr >
+                    <td>5</td>
+                    <td>sursh</td>
+                    <td>Male</td>
+                    <td>25</td>
+                   
+                    <td>H.no:5-22,Kokapet,Hyderabad</td>
+                    <td>6-5-2009</td>
+                    <td>closed</td>
+                    <td>45%</td>
+                    <td>victim</td>
+                    <td>
+                        <form action="sursh.html"><button>For Further Details</button</form></td>
+                </tr>
+                <tr >
+                    <td>6</td>
+                    <td>R.sursh</td>
+                    <td>Male</td>
+                    <td>25</td>
+                    
+                    <td>H.no:5-22,Kokapet,Hyderabad</td>
+                    <td>6-5-2009</td>
+                    <td>Pending</td>
+                    <td>42%</td>
+                    <td>victim</td>
+                    <td>
+                        <form action="sursh.html"><button>For Further Details</button</form></td>
+                </tr>
+                <tr >
+                    <td>7</td>
+                    <td>arpula sursh</td>
+                    <td>Male</td>
+                    <td>25</td>
+                    
+                    <td>H.no:5-22,Kokapet,Hyderabad</td>
+                    <td>6-5-2009</td>
+                    <td>Pending</td>
+                    <td>39%</td>
+                    <td>victim</td>
+                    <td>
+                        <form action="sursh.html"><button>For Further Details</button</form></td>
+                </tr>
+                <tr >
+                    <td>8</td>
+                    <td>sursh arpula</td>
+                    <td>Male</td>
+                    <td>25</td>
+                    
+                    <td>H.no:5-22,Kokapet,Hyderabad</td>
+                    <td>6-5-2009</td>
+                    <td>closed</td>
+                    <td>35%</td>
+                    <td>victim</td>
+                    <td>
+                        <form action="sursh.html"><button>For Further Details</button</form></td>
+                </tr>
+                <tr >
+                    <td>9</td>
+                    <td>suree</td>
+                    <td>Male</td>
+                    <td>25</td>
+                   
+                    <td>H.no:5-22,Kokapet,Hyderabad</td>
+                    <td>6-5-2009</td>
+                    <td>Pending</td>
+                    <td>29%</td>
+                    <td>victim</td>
+                    <td>
+                        <form action="sursh.html"><button>For Further Details</button</form></td>
+                </tr>
+                <tr >
+                    <td>10</td>
+                    <td>suri</td>
+                    <td>Male</td>
+                    <td>25</td>
+                   
+                    <td>H.no:5-22,Kokapet,Hyderabad</td>
+                    <td>6-5-2009</td>
+                    <td>closed</td>
+                    <td>26%</td>
+                    <td>victim</td>
+                    <td>
+                        <form action="sursh.html"><button>For Further Details</button</form></td>
+                </tr>
+                <tr >
+                    <td>11</td>
+                    <td>sur</td>
+                    <td>Male</td>
+                    <td>25</td>
+                    
+                    <td>H.no:5-22,Kokapet,Hyderabad</td>
+                    <td>6-5-2009</td>
+                    <td>Pending</td>
+                    <td>22%</td>
+                    <td>victim</td>
+                    <td>
+                        <form action="sursh.html"><button>For Further Details</button</form></td>
+                </tr>
+                <tr >
+                    <td>12</td>
+                    <td>sur</td>
+                    <td>Male</td>
+                    <td>25</td>
+                   
+                    <td>H.no:5-22,Kokapet,Hyderabad</td>
+                    <td>6-5-2009</td>
+                    <td>closed</td>
+                    <td>20%</td>
+                    <td>victim</td>
+                    <td>
+                        <form action="sursh.html"><button>For Further Details</button</form></td>
+                </tr>
+               
+                
+            </tbody>
+        </table>
+    </div>
+
+    <!-- JavaScript for Dropdown -->
+    <script>
+        function showDropdown() {
+            const dropdown = document.getElementById('dropdown');
+            const searchBar = document.getElementById('searchBar1').value;
+            if (searchBar) {
+                dropdown.style.display = 'block';
+            } else {
+                dropdown.style.display = 'none';
+            }
+        }
+           micButton.addEventListener('click', () => {
+      const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+      recognition.lang = 'en-US';
+
+      recognition.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        searchBar.value = transcript;
+        searchBar.dispatchEvent(new Event('input')); // Trigger input event to update dropdown
+      };
+
+      recognition.start();
+    })
+    </script>
+
+</body>
+</html>
