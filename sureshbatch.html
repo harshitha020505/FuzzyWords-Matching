@@ -216,17 +216,18 @@
       border: none;
       /* outline: ; */
       border:2px solid black;
-      
+      /* color:white; */
       font-size: 16px;
       padding: 10px;
       width: 100%;
       /* border:2px solid black; */
       border-radius: 5%;
+      margin-top: 60px;
     }
 
-    #searchBar:focus {
-      border-color: #3498db;
-    }
+    /* #searchBar:focus { */
+      /* border-color: #3498db; */
+    /* } */
     #searchBar1:focus {
       border-color: #3498db;
     }
@@ -270,6 +271,7 @@
             height: 20px;
             margin-bottom: 50px;
             margin-right: 60px;
+            margin-top: 60px;
         }
     h3{
         margin-right: 60px;
@@ -290,9 +292,12 @@
       border: none;
       outline: none;
       font-size: 16px;
-      padding: 10px;
+      /* padding: 10px; */
       width: 100%;
-      border-radius: 24px 0 0 24px;
+      color:white;
+      border:0px solid white;
+      background-color: white;
+      /* border-radius: 24px 0 0 24px; */
     }
 
     #searchBar:focus {
@@ -321,6 +326,7 @@
         height:150px;
         width:300px;
         text-align: center;
+        margin-left: 30px;
     }
     .c14{
         color:black;
@@ -337,7 +343,7 @@
     }
     .c{
         height:50px;
-        background-color:orange;
+        background-color:pink;
     }
 
 
@@ -375,8 +381,8 @@
                 <a href="suresh.html">By Place</a>
                 <a href="surshh.html">By Age</a>
                 <a href="lastupdated.html">Last Updated</a>
-            </div>
-        </div>
+            </div> 
+         </div> 
 
         <!-- Sort search container -->
         <div class="search-container">
@@ -752,7 +758,7 @@
         }
 
         // Initialize dropdowns for both filter and sort bars
-        setupDropdown('searchBar', 'filterDropdown');
+        // setupDropdown('searchBar', 'filterDropdown');
         setupDropdown('sortBar', 'sortDropdown');
         document.getElementById('i11').addEventListener('click',function(){
             var content=document.getElementById('i13');
